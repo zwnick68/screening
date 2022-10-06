@@ -7,7 +7,7 @@ const ListContainer = ({data, setData, allData, descModal, setDescModal, descDat
     
     return ( 
     <div>
-        <ExerciseFilter allData={allData} data={data} setData={setData}/>
+        
     {
         data.map((e) => {
         return (

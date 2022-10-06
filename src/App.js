@@ -3,6 +3,7 @@ import './App.css';
 import ListContainer from './components/ListContainer';
 import { useEffect, useState } from 'react';
 import DescriptionContainer from './components/DescriptionContainer';
+import ExerciseFilter from './components/ExerciseFilter';
 function App() {
 const [data,setData] =useState([])
 const [modal, setModal]= useState(false)
@@ -31,8 +32,13 @@ const [descData, setDescData] = useState()
   }
   return (
     <div className='screen'>
+      
       <div className="leftPane">
-        <button className="exerciseButton" onClick={seeExercises}>Exercises</button>
+      <div className='buttonAndFilter'>
+      <button className="exerciseButton" onClick={seeExercises}>Exercises</button>
+      <ExerciseFilter allData={allData} data={data} setData={setData}/>
+      </div>
+      
         {
         modal ? <ListContainer descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
         }
