@@ -2,7 +2,7 @@ import React from "react";
 
 const ExerciseFilter = ({data,setData,allData,setAllData}) => {
     return (
-        <>
+        <div className="exerciseFilter">
         <label>Filter your Exercises:</label>
         <input type="text" placeholder="Search exercises" onChange={(e) => {
             if (!e.target.value) return setData(allData)
@@ -11,7 +11,7 @@ const ExerciseFilter = ({data,setData,allData,setAllData}) => {
             })
             if(search.length > 0) setData(search)
         }}/>
-        </>
+        </div>
     )
 }
 

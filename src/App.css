@@ -1,3 +1,35 @@
 .hovered {
   color: blue;
 }
+.leftPane {
+  margin-top: 1%;
+  margin-left: 1%; 
+}
+.exerciseButton {
+  margin-bottom: 0.5%;
+}
+label {
+  margin-right: 0.25%;
+}
+.exerciseFilter {
+  margin-bottom: -0.5%;
+}
+.exercise{
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+}
+
+.descVideo {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+.video{
+  width: 500px;
+  height: 500px;
+}
+.screen {
+  display: flex; 
+  flex-direction: row;
+}
