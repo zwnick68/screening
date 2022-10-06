@@ -3,7 +3,6 @@ import React from "react"
 import ExerciseFilter from "./ExerciseFilter"
 import List from "./List"
 // created list container at 32 min in
-import {useState} from 'react'
 const ListContainer = ({data, setData, allData, descModal, setDescModal, descData, setDescData}) => {
     
     return ( 

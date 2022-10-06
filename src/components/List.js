@@ -7,17 +7,38 @@ const List = ({allData,descData,setDescData, data, descModal,setDescModal}) => {
     const [modal,setModal] = useState(false)
     const [name, description, video] = [data.name, data.description]
     const [hovering, setHovering] = useState(false)
-   // console.log(data.video.url)
+
+//    setDescData(data[0])
+//    console.log(data)
+//    console.log(data)
     const toggleModal = (e) => {
-        setDescModal(!descModal)
+        // setDescModal(!descModal)
+        // setDescData(data)
+        console.log(descData[0])
         console.log(data)
+        let other;
         let clickedInfo = allData.filter((element)=> {
-            if (descData == data) setDescModal(!descModal)
-            if (data == element)
-            return data
+            // console.log(element)
+            if(data == element && data != other) {
+                // setDescModal(!descModal)
+                other = data
+                descData[0] = data
+                return data
+            }
+            else if( data == other) {
+                setDescModal(!descModal)
+            }
+            // else if (data == descData[0]) {
+            //     setDescModal(!descModal)
+            //     // return data
+            // }
+            // else return data
+            
         })
         setDescData(clickedInfo)
-        console.log(clickedInfo)
+        console.log(data)
+        console.log(clickedInfo[0])
+        console.log(descData[0])
     }
     const hover = () => {
         setHovering(!hovering)
@@ -36,7 +57,7 @@ const List = ({allData,descData,setDescData, data, descModal,setDescModal}) => {
     return ( 
     <div>
         <div className="exercise">
-            <h2 value={data.id} onClick={toggleModal} className={hovering ? "hovered" : null} onMouseOver={hover} onMouseOut={hover}>{name}</h2>
+            <h3 value={data.id} onClick={toggleModal} className={hovering ? "hovered" : null} onMouseOver={hover} onMouseOut={hover}>{name}</h3>
         </div>
         {/* <div>
             {modal ? <Description/> : null}
