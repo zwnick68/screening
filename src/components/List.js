@@ -6,9 +6,15 @@ const List = ({data}) => {
     
     const [modal,setModal] = useState(false)
     const [name, description, video] = [data.name, data.description]
+    const [hovering, setHovering] = useState(false)
    // console.log(data.video.url)
     const toggleModal = () => {
         setModal(!modal)
+        
+    }
+    const hover = () => {
+        setHovering(!hovering)
+        console.log("hoveringgggggggggg")
     }
     const Description = () => {
         return (
@@ -22,8 +28,8 @@ const List = ({data}) => {
     }
     return ( 
     <div>
-        <li onClick={toggleModal}>{name}</li>
-        { modal ? <Description/> : null}
+        <li onClick={toggleModal} className={hovering ? "hovered" : null} onMouseOver={hover} onMouseOut={hover}>{name}</li>
+        {modal ? <Description/> : null}
     </div>
     )
 }
