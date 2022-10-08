@@ -57,7 +57,7 @@ const List = ({allData,descData,setDescData, data, descModal,setDescModal}) => {
     return ( 
     <div>
         <div className="exercise">
-            <h3 value={data.id} onClick={toggleModal} onMouseOver={hover} onMouseOut={hover}>{name}</h3>
+            <h3 value={data} onClick={toggleModal} onMouseOver={hover} onMouseOut={hover}>{name}</h3>
         </div>
         {/* <div>
             {modal ? <Description/> : null}

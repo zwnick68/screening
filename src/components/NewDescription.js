@@ -1,8 +1,9 @@
 import React from "react";
 
 const NewDescription = ({data})=> {
-    const [name,description,video, muscle_groups, equipment_required, movement_patterns, alternating, side] = [data[0].name, data[0].description, data[0].video.url, data[0].muscle_groups, data[0].equipment_required, data[0].movement_patterns, data[0].is_alternating, data[0].side]
-    console.log(video)
+
+    const [name,description,video, muscle_groups, equipment_required, movement_patterns, alternating, side, is_flipped] = [data[0].name, data[0].description, data[0].video.url, data[0].muscle_groups, data[0].equipment_required, data[0].movement_patterns, data[0].is_alternating, data[0].side, data[0].video.is_flipped]
+
     return (
         <div className="descVideo">
         <div className="info">
@@ -19,8 +20,8 @@ const NewDescription = ({data})=> {
             {side ? <h2>Side:</h2>: null}
             <p>{side.replace('_',' ')}</p>
         </div>
-        <video className="video" loop autoPlay>
-        <source controls src={data[0].video.url} type='video/mp4'></source>
+        <video className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
+        <source controls src={video} type='video/mp4'></source>
         </video>
         </div>
     )

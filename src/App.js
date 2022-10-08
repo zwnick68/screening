@@ -32,13 +32,11 @@ const [descData, setDescData] = useState()
   }
   return (
     <div className='screen'>
-      
+    <div className="mainButton">
+    <button onClick={seeExercises}>Exercises</button>
+    </div>
       <div className="leftPane">
-      <div className='buttonAndFilter'>
-      <button className="exerciseButton" onClick={seeExercises}>Exercises</button>
-      <ExerciseFilter allData={allData} data={data} setData={setData}/>
-      </div>
-      
+      { modal ? <ExerciseFilter allData={allData} data={data} setData={setData}/> : null}
         {
         modal ? <ListContainer descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
         }
