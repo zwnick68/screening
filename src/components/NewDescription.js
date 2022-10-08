@@ -9,14 +9,15 @@ const NewDescription = ({data})=> {
             <h1>{name}</h1>
             <h2>How-to:</h2>
             <p>{description}</p>
-            <h2>Muscle Groups</h2>
+            {muscle_groups ? <h2>Muscle Groups:</h2> : null}
             <p>{muscle_groups}</p>
-            <h2>Equipment</h2>
+            {equipment_required ?<h2>Equipment:</h2> : null}
             <p>{equipment_required}</p>
-            <h2>Movement</h2>
+            {movement_patterns ? <h2>Movements:</h2> : null}
             <p>{movement_patterns}</p>
             <h2>{alternating ? "This exercise alternates" : "This exercise does not alternate."}</h2>
-            <h2>{side ? `Side: ${side}`: null}</h2>
+            {side ? <h2>Side:</h2>: null}
+            <p>{side.replace('_',' ')}</p>
         </div>
         <video className="video" loop autoPlay>
         <source controls src={data[0].video.url} type='video/mp4'></source>
