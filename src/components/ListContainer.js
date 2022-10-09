@@ -8,9 +8,9 @@ const ListContainer = ({data, setData, allData, descModal, setDescModal, descDat
     return ( 
     <div>
     {
-        data.map((e) => {
+        data.map((e, id) => {
         return (
-            <List key={e.id} allData={allData} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} data = {e}/>
+            <List allData={allData} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} data = {e}/>
         )
     })
     }
