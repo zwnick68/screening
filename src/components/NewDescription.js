@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
-const NewDescription = ({data})=> {
+const NewDescription = ({data, video,setVideo})=> {
     const [modal,setModal] = useState(false)
-    const [name,description,video, muscle_groups, equipment_required, movement_patterns, alternating, side, is_flipped,audio] = [data[0].name, data[0].description, data[0].video.url, data[0].muscle_groups, data[0].equipment_required, data[0].movement_patterns, data[0].is_alternating, data[0].side, data[0].video.is_flipped, data[0].audio.url]
+    const [id,name,description, muscle_groups, equipment_required, movement_patterns, alternating, side, is_flipped,audio] = [data[0].id, data[0].name, data[0].description,  data[0].muscle_groups, data[0].equipment_required, data[0].movement_patterns, data[0].is_alternating, data[0].side, data[0].video.is_flipped, data[0].audio.url]
     
     const restOfInfo = () => {
         setModal(!modal)
     }
-
+    const uploadNewVideo = async (vid = video) => {
+            return setVideo(vid)
+        }
     return (
         <div className="descVideo">
         <div className="info">
@@ -29,8 +31,8 @@ const NewDescription = ({data})=> {
             </>
             : null}
         </div>
-        <video className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
-        <source controls src={video} type='video/mp4'></source>
+        <video key={id} className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
+        <source src={video} controls type='video/mp4'></source>
         </video>
         </div>
     )

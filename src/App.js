@@ -5,10 +5,11 @@ import DescriptionContainer from './components/DescriptionContainer';
 import ExerciseFilter from './components/ExerciseFilter';
 function App() {
 const [data,setData] =useState([])
-const [modal, setModal]= useState(true)
+const [modal, setModal]= useState(false)
 const [allData,setAlldata]=useState([])
-const [descModal, setDescModal] = useState(false)
+const [descModal, setDescModal] = useState(true)
 const [descData, setDescData] = useState()
+const [video,setVideo] = useState([])
 
   // console.log(descData)
   let request = async()=>{
@@ -17,6 +18,7 @@ const [descData, setDescData] = useState()
       setData(res)
       setAlldata(res)
       setDescData(res)
+      setVideo(res[0].video.url)
     }
 
   useEffect(() => {
@@ -32,6 +34,9 @@ const [descData, setDescData] = useState()
   return (
     <>
     <div className="bar">
+        { !modal ? <video className="backgroundVideo" autoPlay muted loop poster=''>
+          <source src="../pullups.mp4" type="video/mp4"></source>
+        </video> : null}
       <div className="search">
       { modal ? <ExerciseFilter allData={allData} data={data} setData={setData}/> : null}
       
@@ -45,12 +50,12 @@ const [descData, setDescData] = useState()
       <div className={ modal ? "leftPane" : "leftPaneFake"}>
       
         {
-        modal ? <ListContainer descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
+        modal ? <ListContainer video={video} setVideo={setVideo} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
         }
       </div>
       <div>
         {  
-          modal ? <DescriptionContainer descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
+          modal ? <DescriptionContainer video={video} setVideo={setVideo} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
         }
       </div>
     </div>
