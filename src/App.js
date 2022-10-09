@@ -35,7 +35,7 @@ const [descData, setDescData] = useState()
       <div className="search">
       { modal ? <ExerciseFilter allData={allData} data={data} setData={setData}/> : null}
       
-      <button onClick={seeExercises}>Exercises</button>
+      <button className="exerciseButton" onClick={seeExercises}>Exercises</button>
       </div>
       
     </div>
