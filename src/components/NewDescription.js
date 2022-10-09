@@ -16,9 +16,10 @@ const NewDescription = ({data})=> {
             <p>{equipment_required}</p>
             {movement_patterns ? <h2>Movements:</h2> : null}
             <p>{movement_patterns}</p>
-            <h2>{alternating ? "This exercise alternates" : "This exercise does not alternate."}</h2>
             {side ? <h2>Side:</h2>: null}
             <p>{side.replace('_',' ')}</p>
+            <h2>{alternating ? "This exercise alternates" : null}</h2>
+
         </div>
         <video className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
         <source controls src={video} type='video/mp4'></source>

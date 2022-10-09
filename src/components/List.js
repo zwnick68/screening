@@ -6,7 +6,7 @@ const List = ({allData,descData,setDescData, data, descModal,setDescModal}) => {
     
     const [modal,setModal] = useState(false)
     const [name, description, video] = [data.name, data.description]
-    const [hovering, setHovering] = useState(false)
+   
 
 //    setDescData(data[0])
 //    console.log(data)
@@ -40,29 +40,11 @@ const List = ({allData,descData,setDescData, data, descModal,setDescModal}) => {
         console.log(clickedInfo[0])
         console.log(descData[0])
     }
-    const hover = () => {
-        setHovering(!hovering)
-        console.log("hoveringgggggggggg")
-    }
-    // const Description = () => {
-    //     return (
-    //         <div className="descVideo">
-    //         <p>{description}</p>
-    //         <video className="video" loop autoPlay>
-    //         <source controls src={data.video.url} type='video/mp4'></source>
-    //         </video>
-    //         </div>
-    //     )
-    // }
+    
     return ( 
-    <div>
         <div className="exercise">
-            <h3 value={data} onClick={toggleModal} onMouseOver={hover} onMouseOut={hover}>{name}</h3>
+            <h3 key={data.id} onClick={toggleModal}>{name}</h3>
         </div>
-        {/* <div>
-            {modal ? <Description/> : null}
-        </div> */}
-    </div>
     )
 }
 

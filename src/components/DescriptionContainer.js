@@ -4,7 +4,7 @@ const DescriptionContainer = ({data, descModal, setDescModal, descData, setDescD
     console.log(descModal)
     // console.log(descData)
     return (
-        <div> 
+        <div className="descriptionContainer"> 
             { 
             descModal ? <NewDescription data={descData}/> : null
             }

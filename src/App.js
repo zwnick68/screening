@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ListContainer from './components/ListContainer';
 import { useEffect, useState } from 'react';
@@ -6,7 +5,7 @@ import DescriptionContainer from './components/DescriptionContainer';
 import ExerciseFilter from './components/ExerciseFilter';
 function App() {
 const [data,setData] =useState([])
-const [modal, setModal]= useState(false)
+const [modal, setModal]= useState(true)
 const [allData,setAlldata]=useState([])
 const [descModal, setDescModal] = useState(false)
 const [descData, setDescData] = useState()
@@ -31,12 +30,20 @@ const [descData, setDescData] = useState()
     setModal(!modal)
   }
   return (
-    <div className='screen'>
-    <div className="mainButton">
-    <button onClick={seeExercises}>Exercises</button>
-    </div>
-      <div className="leftPane">
+    <>
+    <div className="bar">
+      <div className="search">
       { modal ? <ExerciseFilter allData={allData} data={data} setData={setData}/> : null}
+      
+      <button onClick={seeExercises}>Exercises</button>
+      </div>
+      
+    </div>
+    <div className='screen'>
+   
+   
+      <div className={ modal ? "leftPane" : "leftPaneFake"}>
+      
         {
         modal ? <ListContainer descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
         }
@@ -47,6 +54,7 @@ const [descData, setDescData] = useState()
         }
       </div>
     </div>
+    </>
   );
 }
 

@@ -7,14 +7,10 @@ const ListContainer = ({data, setData, allData, descModal, setDescModal, descDat
     
     return ( 
     <div>
-        
     {
         data.map((e) => {
         return (
-            <>
-            <List allData={allData} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} data = {e}/>
-            {/* <Description data = {e} descModal={descModal} setDescModal={setDescModal}/> */}
-            </>
+            <List key={e.id} allData={allData} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} data = {e}/>
         )
     })
     }
