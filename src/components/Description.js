@@ -31,9 +31,9 @@ const Description = ({data, video,setVideo})=> {
                 <audio controls src={audio}></audio>
             </>: null}
         </div>
-        <video key={id} className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
-        <source alt="loading" src={video} controls type='video/mp4'></source>
-        </video>
+            <video key={id} className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
+            <source src={video} controls type='video/mp4'></source>
+            </video>
         </div>
     )
 }

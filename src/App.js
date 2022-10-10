@@ -45,7 +45,7 @@ function App() {
       <div className='screen'>
         <div className={ modal ? "leftPane" : "leftPaneFake"}>    
           {
-          modal ? <ListContainer video={video} setVideo={setVideo} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
+            modal ? <ListContainer video={video} setVideo={setVideo} descData={descData} setDescData={setDescData} descModal={descModal} setDescModal={setDescModal} allData={allData} setAllData={setAlldata} data={data} setData={setData}/> : null
           }
         </div>
         <div>
