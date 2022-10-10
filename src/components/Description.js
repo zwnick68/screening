@@ -12,6 +12,11 @@ const Description = ({data, video,setVideo})=> {
     
     return (
         <div className="descVideo">
+            <div className="exerciseVid">
+            <video key={id} className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
+            <source src={video} controls type='video/mp4'></source>
+            </video>
+            </div>
         <div className="info">
             <h1>{name}</h1>
             <h2>How-to:</h2>
@@ -30,10 +35,9 @@ const Description = ({data, video,setVideo})=> {
                 <h2>{alternating ? "This exercise alternates" : null}</h2>
                 <audio controls src={audio}></audio>
             </>: null}
+            
         </div>
-            <video key={id} className={is_flipped ? "video" : "flippedVideo"} loop autoPlay>
-            <source src={video} controls type='video/mp4'></source>
-            </video>
+            
         </div>
     )
 }
