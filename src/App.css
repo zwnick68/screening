@@ -220,7 +220,7 @@ input:focus{
   background-color: black;
   height: 50px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   opacity: 1;
   z-index: 2;
 }
